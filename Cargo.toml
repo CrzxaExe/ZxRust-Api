@@ -5,5 +5,7 @@ edition = "2024"
 
 [dependencies]
 axum = "0.8.4"
+dotenv = "0.15.0"
+mongodb = { version = "3.2.3", features = ["sync","compat-3-0-0","rustls-tls","dns-resolver"], default-features = false }
 serde = { version = "1.0.219", features = ["derive"] }
 tokio = { version = "1.45.1", features = ["full"] }
