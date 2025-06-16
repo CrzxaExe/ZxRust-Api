@@ -13,6 +13,8 @@ pub struct InventoryItem {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct User {
     pub _id: ObjectId,
+    pub id: String,
     pub username: String,
     pub password: String,
+    pub email: String,
 }

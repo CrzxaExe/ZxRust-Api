@@ -31,9 +31,9 @@ async fn main() -> mongodb::error::Result<()> {
     let db = client.database(&database_name);
 
     match db.run_command(doc! { "ping": 1 }).await {
-        Ok(_) => println!("Succerfull connect to database"),
+        Ok(_) => println!("[API] Succesfull connect to database"),
         Err(e) => {
-            eprintln!("Failed connect to database {}", e);
+            eprintln!("[API] Failed connect to database {}", e);
             return Err(e);
         }
     }
@@ -43,10 +43,10 @@ async fn main() -> mongodb::error::Result<()> {
     let address: String = env::var("ADDRESS").unwrap_or_else(|_| "0.0.0.0".to_string());
     let port: String = env::var("PORT").unwrap_or_else(|_| "3000".to_string());
 
-    let ip: String = format!("{}:{}", address, port);
+    let ip: String = format!("[API] {}:{}", address, port);
 
-    println!("{} started", app_name);
-    println!("Listening to {}", ip);
+    println!("[API] {} started", app_name);
+    println!("[API] Listening to {}", ip);
 
     let app: Router = Router::new()
         .route("/", get(home))
